@@ -14,7 +14,7 @@ Scene Text Recognition (STR) relies critically on large-scale, high-quality trai
 
 ## Dataset
 
-UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST).
+UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST). We use the lmdb file format adopted by the mainstream STR protocol.
 
 ## Training Model
 [OpenOCR](https://github.com/Topdu/OpenOCR)
