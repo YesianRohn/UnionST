@@ -3,6 +3,7 @@
 <a href='https://arxiv.org/abs/2602.06450'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 <a href='https://huggingface.co/Yesianrohn/UnionST-Models'><img src='https://img.shields.io/badge/Ckpt-Huggingface-yellow'></a> 
 <a href='https://huggingface.co/datasets/Yesianrohn/UnionST'><img src='https://img.shields.io/badge/Data-Huggingface-purple'></a>
+
 <a href='https://huggingface.co/datasets/Yesianrohn/STR-Synth'><img src='https://img.shields.io/badge/STR-Synth-Huggingface-orange'></a> 
 
 Official data synthesis code of the paper *"What’s Wrong with Synthetic Data for Scene Text Recognition? A Strong Synthetic Engine with Diverse Simulations and Self-Evolution"*.
