@@ -3,7 +3,6 @@
 <a href='https://arxiv.org/abs/2602.06450'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 <a href='https://huggingface.co/Yesianrohn/UnionST-Models'><img src='https://img.shields.io/badge/Ckpt-Huggingface-yellow'></a> 
 <a href='https://huggingface.co/datasets/Yesianrohn/UnionST'><img src='https://img.shields.io/badge/Data-Huggingface-purple'></a>
-<a href='https://huggingface.co/datasets/Yesianrohn/STR-Synth'><img src='https://img.shields.io/badge/SynthSTR-Huggingface-orange'></a> 
 
 Official data synthesis code of the paper *"What’s Wrong with Synthetic Data for Scene Text Recognition? A Strong Synthetic Engine with Diverse Simulations and Self-Evolution"*.
 
@@ -18,7 +17,7 @@ Scene Text Recognition (STR) relies critically on large-scale, high-quality trai
 
 ## Dataset
 
-UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST). We use the lmdb file format adopted by the mainstream STR protocol.
+UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST). We use the lmdb file format adopted by the mainstream STR protocol. In addition, we have  summarized the other STR synthetic datasets compared in the paper, which are available [here](https://huggingface.co/datasets/Yesianrohn/STR-Synth).
 
 ## Training Model
 The configuration and implementation of the SVTRv2-AR model have been completed in [OpenOCR](https://github.com/Topdu/OpenOCR/blob/main/configs/rec/nrtr/svtrv2_nrtr.yml).
