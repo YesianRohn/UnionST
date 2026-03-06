@@ -17,7 +17,7 @@ Scene Text Recognition (STR) relies critically on large-scale, high-quality trai
 UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST). We use the lmdb file format adopted by the mainstream STR protocol.
 
 ## Training Model
-[OpenOCR](https://github.com/Topdu/OpenOCR)
+The configuration and implementation of the SVTRv2-AR model have been completed in [OpenOCR](https://github.com/Topdu/OpenOCR/blob/main/configs/rec/nrtr/svtrv2_nrtr.yml).
 
 ```bash
 cd OpenOCR
@@ -27,7 +27,12 @@ Some of our trained models can be found at [Huggingface](https://huggingface.co/
 
 ## Citation
    ```bash
-TBD
+@inproceedings{ye2026wrong,
+  title={What's Wrong with Synthetic Data for Scene Text Recognition? A Strong Synthetic Engine with Diverse Simulations and Self-Evolution},
+  author={Ye, Xingsong and Du, Yongkun and Zhang, JiaXin and Li, Chen and LYU, Jing and Chen, Zhineng},
+  booktitle={CVPR},
+  year={2026}
+}
    ```
 
 ## License
