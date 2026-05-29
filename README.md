@@ -19,13 +19,75 @@ Scene Text Recognition (STR) relies critically on large-scale, high-quality trai
 
 UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](https://huggingface.co/datasets/Yesianrohn/UnionST). We use the lmdb file format adopted by the mainstream STR protocol. In addition, we have  summarized the other STR synthetic datasets compared in the paper, which are available [here](https://huggingface.co/datasets/Yesianrohn/STR-Synth).
 
+## Installation
+
+1. **Clone the UnionST Repository:**
+   
+    ```bash
+    git clone https://github.com/YesianRohn/UnionST.git
+    cd UnionST
+   ```
+
+2. **Create a New Environment for UnionST:**
+   ```bash
+   conda create -n unionst python=3.8
+   conda activate unionst
+   ```
+
+3. **Install Required Dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Resource Preparation
+
+#### 1. Background Preparation
+
+We directly use the 8,000 background images provided by [SynthText]((https://github.com/ankush-me/SynthText)), and you can download them from the official repository.
+
+#### 2. Font Preparation
+
+- You can use your own font files. Due to copyright restrictions, we cannot provide the font library we used. As an alternative, you can use [Google Fonts](https://github.com/google/fonts/archive/main.zip) as a base.
+- Font filtering:
+  ```bash
+  python tools/filter_font.py
+  ```
+- Extract renderable charsets:
+  ```bash
+  python tools/extract_font_charset.py -w 4 fonts/
+  ```
+
+For additional operations and extensions, please refer to [SynthTIGER](https://github.com/clovaai/synthtiger).
+
+If you do not wish to perform the above preparations, we provide some simple files in the corresponding locations, so you can directly proceed with the following steps.
+
+## Usage
+
+#### Visualization Generation
+
+```bash
+python main.py -w 16 -v config/template.py UnionST config/config.yaml -o results/vis -c 100
+```
+
+#### Dataset Generation (LMDB Format)
+
+```bash
+python main.py -w 16 -v config/template.py UnionST config/config.yaml -o results/lmdb -c 100 --lmdb
+```
+
+## Dataset
+
+UnionST-S, UnionST-P, and UnionST-R datasets (each containing 5M samples) can be downloaded from [Huggingface](h) and [Modelscope](m).
+
 ## Training Model
-The configuration and implementation of the SVTRv2-AR model have been completed in [OpenOCR](https://github.com/Topdu/OpenOCR/blob/main/configs/rec/nrtr/svtrv2_nrtr.yml).
+[OpenOCR](https://github.com/Topdu/OpenOCR)
 
 ```bash
 cd OpenOCR
 torchrun  --nproc_per_node=8 tools/train_rec.py --c configs/rec/nrtr/svtrv2_nrtr_unionst.yml
 ```
+
 Some of our trained models can be found at [Huggingface](https://huggingface.co/Yesianrohn/UnionST-Models).
 
 ## Citation

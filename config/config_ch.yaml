@@ -1,0 +1,136 @@
+coord_output: true
+mask_output: true
+glyph_coord_output: true
+glyph_mask_output: true
+
+vertical_rate: 0.1
+supersub_rate: 0
+
+quality: [50, 95]
+visibility_check: true
+
+midground: 0.25
+midground_offset:
+  percents: [[-0.5, 0.5], [-0.5, 0.5]]
+foreground_mask_pad: 5
+
+corpus:
+  paths: [resources/ch/corpus_tex.txt, resources/ch/corpus_gb18030.txt]
+  weights: [4, 1]
+  min_length: 1
+  max_length: 100
+
+font:
+  paths: [filter_font/filtered_fonts_ch]
+  weights: [1]
+  size: [60, 100]
+  bold: 0.5
+  index_file: filter_font/font_index_ch.h5
+
+texture:
+  prob: 0.5
+  args:
+    paths: [bgf_img]
+    weights: [1]
+    alpha: [0, 1]
+    grayscale: 0
+    crop: 1
+
+colormap2:
+  paths: [resources/colormap/iiit5k_gray.txt]
+  weights: [1]
+  k: 2
+  alpha: [1, 1]
+  colorize: 1
+
+colormap3:
+  paths: [resources/colormap/iiit5k_gray.txt]
+  weights: [1]
+  k: 3
+  alpha: [1, 1]
+  colorize: 1
+
+color:
+  gray: [0, 255]
+  alpha: [1, 1]
+  colorize: 1
+
+shape:
+  prob: 1
+  args:
+    weights: [1, 1]
+    args:
+      # elastic distortion
+      - alpha: [15, 30]
+        sigma: [4, 12]
+      # elastic distortion
+      - alpha: [0, 2]
+        sigma: [0, 0.6]
+
+layout:
+  weights: [4, 1]
+  args:
+    # flow layout
+    - space: [-5, 5]
+      align: [left, middle, right, justify]
+      line_align: [top, center, right]
+    - curve: [20, 200]
+      space: [-2, 5]
+      convex: 0.5
+      upward: 0.5
+
+style:
+  prob: 0.25
+  args:
+    weights: [1, 2, 2]
+    args:
+      # text border
+      - size: [1, 12]
+        alpha: [1, 1]
+        grayscale: 0
+      # text shadow
+      - distance: [1, 6]
+        angle: [0, 360]
+        alpha: [0.3, 0.7]
+        grayscale: 0
+      # text extrusion
+      - length: [1, 12]
+        angle: [0, 360]
+        alpha: [1, 1]
+        grayscale: 0
+
+transform:
+  prob: 0.6
+  args:
+    weights: [1, 1, 1, 1, 1, 1, 1]
+    args:
+      # perspective x
+      - percents: [[0.8, 1], [1, 1]]
+        aligns: [[0, 0], [0, 0]]
+      # perspective y
+      - percents: [[1, 1], [0.8, 1]]
+        aligns: [[0, 0], [0, 0]]
+      # trapezoidate x
+      - weights: [1, 0, 1, 0]
+        percent: [0.9, 1.1]
+        align: [-1, 1]
+      # trapezoidate y
+      - weights: [0, 1, 0, 1]
+        percent: [0.9, 1.1]
+        align: [-1, 1]
+      # skew x
+      - weights: [1, 0]
+        angle: [0, 10]
+        ccw: 0.5
+      # skew y
+      - weights: [0, 1]
+        angle: [0, 10]
+        ccw: 0.5
+      # rotate any
+      - angle: [0, 180]
+        ccw: 0.5
+
+pad:
+  prob: 1
+  args:
+    pxs: [[0, 10], [0, 10], [0, 10], [0, 10]]
